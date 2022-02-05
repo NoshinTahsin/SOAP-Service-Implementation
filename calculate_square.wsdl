@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="https://localhost:44368/WebService1.asmx/CalculateSquare" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" 
+	name="HelloEndpointService" 
+	targetNamespace="https://localhost:44368/WebService1.asmx/CalculateSquare">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://localhost:44368/WebService1.asmx/CalculateSquare" elementFormDefault="qualified" targetNamespace="https://localhost:44368/WebService1.asmx/CalculateSquare" version="1.0">
+
+  <xs:element name="CalculateSquare" type="tns:CalculateSquare"/>
+
+  <xs:element name="CalculateSquareResponse" type="tns:CalculateSquareResponse"/>
+
+  <xs:complexType name="CalculateSquare">
+    <xs:sequence>
+      <xs:element name="NumRequest" type="tns:numRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="numRequest">
+    <xs:sequence>
+      <xs:element name="Num" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CalculateSquareResponse">
+    <xs:sequence>
+      <xs:element name="NumResponse" type="tns:numResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="numResponse">
+    <xs:sequence>
+      <xs:element name="NumMessage" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="CalculateSquareResponse">
+    <wsdl:part element="tns:CalculateSquareResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="CalculateSquare">
+    <wsdl:part element="tns:CalculateSquare" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+
+  <wsdl:portType name="NumEndpoint">
+    <wsdl:operation name="CalculateSquare">
+      <wsdl:input message="tns:CalculateSquare" name="CalculateSquare">
+    </wsdl:input>
+      <wsdl:output message="tns:CalculateSquareResponse" name="CalculateSquareResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="SquareEndpointServiceSoapBinding" type="tns:NumEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CalculateSquare">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="CalculateSquare">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CalculateSquareResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SquareEndpointService">
+    <wsdl:port binding="tns:SquareEndpointServiceSoapBinding" name="NumEndpointPort">
+      <soap:address location="https://localhost:44368/WebService1.asmx/CalculateSquare"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
