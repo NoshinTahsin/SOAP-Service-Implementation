@@ -17,25 +17,25 @@
 
             <xs:complexType name="CalculateSquare">
                 <xs:sequence>
-                <xs:element name="NumRequest" type="tns:numRequest"/>
+                    <xs:element name="NumRequest" type="tns:numRequest"/>
                 </xs:sequence>
             </xs:complexType>
 
             <xs:complexType name="numRequest">
                 <xs:sequence>
-                <xs:element name="Num" type="xs:int"/>
+                    <xs:element name="Num" type="xs:int"/>
                 </xs:sequence>
             </xs:complexType>
 
             <xs:complexType name="CalculateSquareResponse">
                 <xs:sequence>
-                <xs:element name="NumResponse" type="tns:numResponse"/>
+                    <xs:element name="NumResponse" type="tns:numResponse"/>
                 </xs:sequence>
             </xs:complexType>
 
             <xs:complexType name="numResponse">
                 <xs:sequence>
-                <xs:element name="NumMessage" type="xs:int"/>
+                    <xs:element name="NumMessage" type="xs:int"/>
                 </xs:sequence>
             </xs:complexType>
 
